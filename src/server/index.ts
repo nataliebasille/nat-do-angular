@@ -5,8 +5,11 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
+import * as trpcExpress from '@trpc/server/adapters/express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createTRPCContext } from './api/trpc';
+import { appRouter } from './api/root';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -34,7 +37,15 @@ app.use(
     maxAge: '1y',
     index: false,
     redirect: false,
-  }),
+  })
+);
+
+app.use(
+  '/trpc',
+  trpcExpress.createExpressMiddleware({
+    router: appRouter,
+    createContext: createTRPCContext,
+  })
 );
 
 /**
@@ -44,7 +55,7 @@ app.use('/**', (req, res, next) => {
   angularApp
     .handle(req)
     .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
+      response ? writeResponseToNodeResponse(response, res) : next()
     )
     .catch(next);
 });
