@@ -11,6 +11,7 @@ import superjson from 'superjson';
 
 import { routes } from './app.routes';
 import { TRPC } from './trpc/trpc.injection';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,7 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideTrpc(TRPC, {
       http: {
-        url: 'http://localhost:4200/trpc',
+        url: environment.apiUrl,
         transformer: superjson,
       },
     }),
