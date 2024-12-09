@@ -1,0 +1,29 @@
+diff --git a/node_modules/ngx-trpc/fesm2022/ngx-trpc.mjs b/node_modules/ngx-trpc/fesm2022/ngx-trpc.mjs
+index 17bc206..48ccd7b 100644
+--- a/node_modules/ngx-trpc/fesm2022/ngx-trpc.mjs
++++ b/node_modules/ngx-trpc/fesm2022/ngx-trpc.mjs
+@@ -466,6 +466,7 @@ function provideTrpc(token, config) {
+                 const fetchMiddleware = new FetchMiddleware(config, req, res);
+                 const url = normalizeHttpUrl(req?.url ? new URL(req?.url ?? '').origin : '', httpConfig.url);
+                 const trpcHttpLink = httpBatchLink({
++                    ...config.http,
+                     url: url,
+                     fetch: _isBrowser ? undefined : (input, init) => fetchMiddleware.fetch(input, init)
+                 });
+diff --git a/node_modules/ngx-trpc/lib/trpc.config.d.ts b/node_modules/ngx-trpc/lib/trpc.config.d.ts
+index abf2284..6307871 100644
+--- a/node_modules/ngx-trpc/lib/trpc.config.d.ts
++++ b/node_modules/ngx-trpc/lib/trpc.config.d.ts
+@@ -1,10 +1,8 @@
+-import { WebSocketClientOptions } from '@trpc/client';
++import { WebSocketClientOptions, HTTPBatchLinkOptions } from '@trpc/client';
+ import { InjectionToken, Provider } from '@angular/core';
+ export declare const TRPC_CONFIG: InjectionToken<ITrpcConfig>;
+ export declare const provideTrpcConfig: (config: ITrpcConfig) => Provider;
+-type HttpOptions = {
+-    url: string;
+-};
++type HttpOptions = Omit<HTTPBatchLinkOptions, 'fetch'>;
+ type WsOptions = {
+     url: string;
+ } & Omit<WebSocketClientOptions, 'url'>;
