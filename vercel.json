@@ -1,10 +1,9 @@
 {
-  "builds": [
-    {
-      "src": "dist/nat-do-angular/server/server.mjs",
-      "use": "@vercel/node"
+  "functions": {
+    "dist/nat-do-angular/server/server.mjs": {
+      "runtime": "nodejs@22.0.0"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(.*)",
