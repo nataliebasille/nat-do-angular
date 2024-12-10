@@ -14,6 +14,7 @@ import { appRouter } from './api/root';
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
+console.log('STARTING SERVER');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
