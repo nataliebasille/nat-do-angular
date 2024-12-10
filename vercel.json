@@ -1,13 +1,13 @@
 {
   "functions": {
-    "dist/nat-do-angular/server/server.mjs": {
+    "src/server/index.ts": {
       "runtime": "nodejs@22.0.0"
     }
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/nat-do-angular/server/server.mjs"
+      "dest": "src/server/index.ts"
     }
   ]
 }
