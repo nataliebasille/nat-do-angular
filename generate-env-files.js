@@ -7,11 +7,11 @@ dotenv.config();
 const environments = {
   production: {
     production: true,
-    apiUrl: `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/trpc`
+    apiUrl: `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/api/trpc`
   },
   development: {
     production: false,
-    apiUrl: `${process.env.API_URL}/trpc`
+    apiUrl: `${process.env.API_URL}/api/trpc`
   }
 };
 
