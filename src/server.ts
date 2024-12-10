@@ -8,8 +8,8 @@ import express from 'express';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createTRPCContext } from './api/trpc';
-import { appRouter } from './api/root';
+import { createTRPCContext } from './server/api/trpc';
+import { appRouter } from './server/api/root';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
