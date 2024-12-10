@@ -1,7 +1,7 @@
 {
   "functions": {
     "dist/nat-do-angular/server/server.mjs": {
-      "memory": 3000
+      "runtime": "nodejs@22.0.0"
     }
   }
 }
