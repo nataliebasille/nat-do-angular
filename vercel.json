@@ -1,14 +1,14 @@
 {
   "version": 2,
   "functions": {
-    "src/server/index.ts": {
-      "runtime": "nodejs22.x"
+    "src/server/api/index.ts": {
+      "runtime": "nodejs@22.0.0"
     }
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/server/index.ts"
+      "dest": "src/server/api/index.ts"
     }
   ]
 }
