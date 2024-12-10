@@ -49,6 +49,10 @@ app.use(
   })
 );
 
+app.get('/test', (req, res) => {
+  res.send('Hello World!');
+});
+
 /**
  * Handle all other requests by rendering the Angular application.
  */
