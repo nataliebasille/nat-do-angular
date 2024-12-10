@@ -29,7 +29,7 @@
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
-              "entry": "src/server/api/index.ts"
+              "entry": "src/server/index.ts"
             }
           },
           "configurations": {
