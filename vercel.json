@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/trpc.ts": {
-      "runtime": "nodejs@22.0.0"
-    }
-  }
-}
