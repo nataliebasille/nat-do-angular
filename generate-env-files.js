@@ -11,7 +11,7 @@ const environments = {
   },
   development: {
     production: false,
-    apiUrl: `${process.env.API_URL}/api/trpc`
+    apiUrl: `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/api/trpc`// `${process.env.API_URL}/api/trpc`
   }
 };
 
