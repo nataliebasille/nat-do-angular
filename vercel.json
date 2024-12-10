@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "dist/nat-do-angular/server/server.mjs": {
+      "memory": 3000
+    }
+  }
+}
